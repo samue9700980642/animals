@@ -7,6 +7,20 @@
     "info": "Lions are social cats living in prides. They are apex predators."
   },
   {
+    "name": "Tiger",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg",
+    "type": "Mammal",
+    "location": "Asia",
+    "info": "Tigers are apex predators with iconic orange and black stripes."
+  },
+  {
+    "name": "Elephant",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+    "type": "Mammal",
+    "location": "Africa & Asia",
+    "info": "Elephants are the largest land animals, known for their intelligence and memory."
+  },
+  {
     "name": "Panda",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG",
     "type": "Mammal",
@@ -19,20 +33,6 @@
     "type": "Bird",
     "location": "India",
     "info": "Peacocks are famous for their colorful tail feathers used in courtship displays."
-  },
-  {
-    "name": "Elephant",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
-    "type": "Mammal",
-    "location": "Africa & Asia",
-    "info": "Elephants are the largest land animals, known for their intelligence and memory."
-  },
-  {
-    "name": "Tiger",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg",
-    "type": "Mammal",
-    "location": "Asia",
-    "info": "Tigers are apex predators with iconic orange and black stripes."
   },
   {
     "name": "Kangaroo",
@@ -68,5 +68,40 @@
     "type": "Mammal",
     "location": "Oceans worldwide",
     "info": "Dolphins are intelligent marine mammals known for their playful behavior."
+  },
+  {
+    "name": "Fox",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/12/Red_fox_running.jpg",
+    "type": "Mammal",
+    "location": "Europe, Asia, North America",
+    "info": "Foxes are small to medium-sized omnivorous mammals with bushy tails."
+  },
+  {
+    "name": "Wolf",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Canis_lupus_lupus.jpg",
+    "type": "Mammal",
+    "location": "North America, Europe, Asia",
+    "info": "Wolves are social predators living in packs with strong family bonds."
+  },
+  {
+    "name": "Bear",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/2010-kodiak-bear.jpg",
+    "type": "Mammal",
+    "location": "North America, Europe, Asia",
+    "info": "Bears are large mammals known for strength and adaptability."
+  },
+  {
+    "name": "Owl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Great_Horned_Owl_-_Bubo_virginianus.jpg",
+    "type": "Bird",
+    "location": "Worldwide",
+    "info": "Owls are nocturnal birds of prey with excellent night vision."
+  },
+  {
+    "name": "Crocodile",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/NileCrocodile.jpg",
+    "type": "Reptile",
+    "location": "Africa, Asia, Americas",
+    "info": "Crocodiles are large aquatic reptiles known for powerful jaws."
   }
 ]
