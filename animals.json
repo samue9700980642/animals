@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Lion",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+    "type": "Mammal",
+    "location": "Africa",
+    "info": "Lions are social cats living in prides. They are apex predators."
+  },
+  {
+    "name": "Panda",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG",
+    "type": "Mammal",
+    "location": "China",
+    "info": "Giant pandas are known for their black-and-white coloring and bamboo diet."
+  },
+  {
+    "name": "Peacock",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Peacock_Plumage.jpg",
+    "type": "Bird",
+    "location": "India",
+    "info": "Peacocks are famous for their colorful tail feathers used in courtship displays."
+  },
+  {
+    "name": "Elephant",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+    "type": "Mammal",
+    "location": "Africa & Asia",
+    "info": "Elephants are the largest land animals, known for their intelligence and memory."
+  },
+  {
+    "name": "Tiger",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg",
+    "type": "Mammal",
+    "location": "Asia",
+    "info": "Tigers are apex predators with iconic orange and black stripes."
+  },
+  {
+    "name": "Kangaroo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kangaroo_Australia_01.jpg",
+    "type": "Mammal",
+    "location": "Australia",
+    "info": "Kangaroos are marsupials that carry their young in pouches and are great jumpers."
+  },
+  {
+    "name": "Penguin",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Emperor_Penguin_Manchot_empereur.jpg",
+    "type": "Bird",
+    "location": "Antarctica",
+    "info": "Penguins are flightless birds adapted to life in the water and cold climates."
+  },
+  {
+    "name": "Giraffe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Giraffe_standing.jpg",
+    "type": "Mammal",
+    "location": "Africa",
+    "info": "Giraffes are the tallest land animals, known for their long necks and legs."
+  },
+  {
+    "name": "Zebra",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Plains_Zebra_Equus_quagga.jpg",
+    "type": "Mammal",
+    "location": "Africa",
+    "info": "Zebras are known for their black-and-white stripes and live in herds."
+  },
+  {
+    "name": "Dolphin",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Common_dolphin_noaa.jpg",
+    "type": "Mammal",
+    "location": "Oceans worldwide",
+    "info": "Dolphins are intelligent marine mammals known for their playful behavior."
+  }
+]
