@@ -5,24 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Animal Dashboard</title>
 <style>
-  body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f8ff; color:#333;}
-  header { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:linear-gradient(90deg,#4facfe,#00f2fe); color:white; font-size:20px; font-weight:bold;}
-  .container { display:flex; height:calc(100vh - 60px);}
-  .sidebar { width:250px; background:#fff; border-right:2px solid #ddd; padding:20px; box-shadow:2px 0 10px rgba(0,0,0,0.05);}
-  .sidebar input[type="text"] { width:100%; padding:10px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc;}
-  .sidebar button { padding:10px; width:100%; border-radius:8px; border:none; background:#4facfe; color:white; font-weight:bold; cursor:pointer; transition:0.3s;}
-  .sidebar button:hover { background:#00f2fe;}
-  .dashboard { flex:1; padding:20px; overflow-y:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
-  .animal-card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s;}
-  .animal-card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
-  .animal-card img { width:100%; height:150px; object-fit:cover;}
-  .animal-card h3 { margin:10px; text-align:center;}
-  .details { position:fixed; top:60px; left:0; width:100%; height:calc(100% - 60px); background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; padding:20px; box-sizing:border-box;}
-  .details-content { background:#fff; border-radius:12px; padding:30px; max-width:600px; width:100%; position:relative; animation:fadeIn 0.5s ease-in-out;}
-  .details-content img { width:100%; border-radius:12px;}
-  .details-content h2 { margin-top:15px;}
-  .details-content p { margin-top:10px; line-height:1.5;}
-  .close-btn { position:absolute; top:15px; right:15px; font-size:20px; background:#ff4c4c; color:#fff; border:none; border-radius:50%; width:35px; height:35px; cursor:pointer;}
+  body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#eef6ff; color:#333; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:linear-gradient(90deg,#4facfe,#00f2fe); color:white; font-size:20px; font-weight:bold; }
+  .container { display:flex; height:calc(100vh - 60px); }
+  .sidebar { width:250px; background:#fff; border-right:2px solid #ddd; padding:20px; box-shadow:2px 0 10px rgba(0,0,0,0.05); }
+  .sidebar input[type="text"] { width:100%; padding:10px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc; }
+  .sidebar button { padding:10px; width:100%; border-radius:8px; border:none; background:#4facfe; color:white; font-weight:bold; cursor:pointer; transition:0.3s; }
+  .sidebar button:hover { background:#00f2fe; }
+  .dashboard { flex:1; padding:20px; overflow-y:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+  .animal-card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s; }
+  .animal-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 12px 25px rgba(0,0,0,0.2); }
+  .animal-card img { width:100%; height:150px; object-fit:cover; transition: transform 0.3s; }
+  .animal-card img:hover { transform:scale(1.05); }
+  .animal-card h3 { margin:10px; text-align:center; color:#333; }
+  .details { position:fixed; top:60px; left:0; width:100%; height:calc(100% - 60px); background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; padding:20px; box-sizing:border-box; z-index:999; }
+  .details-content { background:#fff; border-radius:12px; padding:30px; max-width:600px; width:100%; position:relative; animation:fadeIn 0.5s ease-in-out; }
+  .details-content img { width:100%; border-radius:12px; margin-bottom:15px; }
+  .details-content h2 { margin-top:0; }
+  .details-content p { margin-top:10px; line-height:1.5; }
+  .close-btn { position:absolute; top:15px; right:15px; font-size:20px; background:#ff4c4c; color:#fff; border:none; border-radius:50%; width:35px; height:35px; cursor:pointer; }
   @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 </style>
 </head>
@@ -38,7 +39,7 @@
     <input type="text" id="search" placeholder="Search Animals...">
     <button onclick="submitFeedback()">Feedback</button>
   </div>
-  
+
   <div class="dashboard" id="dashboard">
     Loading animals...
   </div>
@@ -56,20 +57,22 @@
 </div>
 
 <script>
-// Replace this URL with your GitHub JSON file URL (public repo)
+// Replace this URL with the RAW URL of your animals.json in your GitHub repository
 const githubJSONUrl = "https://raw.githubusercontent.com/<YOUR_USERNAME>/<YOUR_REPO>/main/animals.json";
 
-// Fetch animal data from GitHub
+let animals = [];
+
+// Fetch animals from GitHub dynamically
 async function fetchAnimals() {
   try {
     const response = await fetch(githubJSONUrl);
     if (!response.ok) throw new Error("Cannot fetch data");
-    const data = await response.json();
-    loadDashboard(data);
-    setupSearch(data);
+    animals = await response.json();
+    loadDashboard(animals);
+    setupSearch();
   } catch (err) {
     console.error(err);
-    document.getElementById('dashboard').innerHTML = "Failed to load animals. Make sure the JSON URL is correct.";
+    document.getElementById('dashboard').innerHTML = "Failed to load animals. Make sure JSON URL is correct and public.";
   }
 }
 
@@ -105,10 +108,10 @@ function closeDetails() {
 }
 
 // Search functionality
-function setupSearch(data) {
+function setupSearch() {
   document.getElementById('search').addEventListener('input', function() {
     const query = this.value.toLowerCase();
-    const filtered = data.filter(a => a.name.toLowerCase().includes(query));
+    const filtered = animals.filter(a => a.name.toLowerCase().includes(query));
     loadDashboard(filtered);
   });
 }
@@ -118,7 +121,7 @@ function submitFeedback() {
   alert("Feedback feature coming soon!");
 }
 
-// Initial fetch
+// Initial fetch from GitHub
 fetchAnimals();
 </script>
 
